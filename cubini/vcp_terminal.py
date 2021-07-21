@@ -121,7 +121,7 @@ class ComPort(object):
 
     def _startRx(self):
         if self._rxthread is not None and (
-                self._rxactive or self._rxthread.isAlive()):
+                self._rxactive or self._rxthread.is_alive()):
             return
         self._rxactive = True
         self._rxthread = threading.Thread(target=self._read)
@@ -372,14 +372,14 @@ class ComPort(object):
 
     def disconnect(self):
         self._endRx()
-        while self._rxthread is not None and self._rxthread.isAlive():
+        while self._rxthread is not None and self._rxthread.is_alive():
             pass
         usb.util.dispose_resources(self.device)
         if self._rxthread is None:
             log.debug("Rx thread never existed")
         else:
             log.debug("Rx thread is {}".format(
-                "alive" if self._rxthread.isAlive() else "dead"))
+                "alive" if self._rxthread.is_alive() else "dead"))
         attempt = 1
         while attempt < 10:
             try:
