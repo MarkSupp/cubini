@@ -11,3 +11,6 @@ python3 setup.py install
 ```
 
 *Requirements*: This library works on top of `pyusb` which uses `libusb` so these should both be installed as well.
+
+*pyusb*: https://pypi.org/project/pyusb/
+*libusb*: https://zadig.akeo.ie/
