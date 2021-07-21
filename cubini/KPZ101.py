@@ -37,10 +37,11 @@ class KPZ101():
         
         # Get HW info; MGMSG_HW_REQ_INFO; may be require by a K Cube to allow confirmation Rx messages
         # use the length of the response as a check for uncorrupted communication
-        com.write(pack('<HBBBB', 0x0005, 0x00, 0x00, 0x50, 0x01))
-        time.sleep(0.1)
-        hw_info = com.readBytes()
-        assert len(hw_info) == 90, 'Communication corrupted for KPZ101 SN {}, response length {} != 90 bytes.'.format(serial_number, len(hw_info))
+
+        # com.write(pack('<HBBBB', 0x0005, 0x00, 0x00, 0x50, 0x01))
+        # time.sleep(0.1)
+        # hw_info = com.readBytes()
+        # assert len(hw_info) == 90, 'Communication corrupted for KPZ101 SN {}, response length {} != 90 bytes.'.format(serial_number, len(hw_info))
 
         self.com = com
         time.sleep(0.1)
